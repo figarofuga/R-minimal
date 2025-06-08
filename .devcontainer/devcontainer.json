@@ -6,7 +6,7 @@
 	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.4",
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {        
-            "packages": "easystats,grf,tinyplot,tinytable,rms,Hmisc,easystats,data.table",
+            "packages": "easystats,grf,tinyplot,tinytable,rms,Hmisc,easystats,data.table,tmle,tidymodels",
             "installSystemRequirements": true},
 		"ghcr.io/rocker-org/devcontainer-features/rstudio-server:0": {}
 	},
