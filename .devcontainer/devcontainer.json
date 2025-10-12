@@ -8,18 +8,25 @@
             // Use RSupport (incl languageserver and httpgd) spand bspm
             "vscodeRSupport": "full",
             "installBspm": true,
+            "installREnv": true,
             //
             // But turn off Radian (R console), devtools, extre Markdown support and debugger
             // You can add each of these individually or jointly. See the table at
             // https://github.com/rocker-org/devcontainer-features/blob/main/src/r-apt/README.md#options
-            "installRadian": false,
+            "installRadian": true,
             "installDevTools": false,
             "installRMarkdown": false,
             "installVscDebugger": false,
             "useTesting": false
-        }
+        }, 
+        "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+        "packages": "r-cran-tidyverse"
+    }
 
     },
+    "overrideFeatureInstallOrder": [
+    "ghcr.io/rocker-org/devcontainer-features/r-apt"
+]
 
     // Configure tool-specific properties.
     "customizations": {
