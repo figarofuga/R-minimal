@@ -31,3 +31,9 @@ fit <- grf::quantile_forest(
   Y = rhc$hema1,
   quantiles = c(0.25, 0.5, 0.75)
 )
+
+tinyplot::plt(
+  alb1 ~ hema1 | sex, data = rhc, alpha = 0.5, 
+  xlab = "ヘマトクリット", ylab = "アルブミン"
+
+)
