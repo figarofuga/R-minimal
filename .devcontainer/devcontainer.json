@@ -21,14 +21,17 @@
         }, 
         "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
         "packages": "r-cran-tidyverse,r-cran-easystats,r-cran-exclusiontable,r-cran-here,r-cran-rms,r-cran-hmisc,r-cran-marginaleffects,r-cran-tinyplot,r-cran-grf,r-cran-tmle"
-    }, 
-        "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
-            "installChromium": true
-        }
+    }
+        
 
     },
     "overrideFeatureInstallOrder": [
     "ghcr.io/rocker-org/devcontainer-features/r-apt"
+],
+
+    "extensions": [
+        "REditorSupport.r",
+        "streetsidesoftware.code-spell-checker"
 ],
 
     // Configure tool-specific properties.
