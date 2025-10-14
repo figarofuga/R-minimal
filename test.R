@@ -1,8 +1,10 @@
 library(here)
 library(data.table)
+library(rms)
 library(tidyverse)
 library(grf)
 library(tmle)
+library(SuperLearner)
 
 rhc <- data.table::fread(here::here("rhc.csv")) |> 
     dplyr::mutate(
