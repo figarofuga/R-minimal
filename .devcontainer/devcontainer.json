@@ -20,7 +20,7 @@
             "useTesting": false
         }, 
         "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-        "packages": "fonts-noto-cjk,r-cran-tidyverse,r-cran-easystats,r-cran-exclusiontable,r-cran-here,r-cran-rms,r-cran-hmisc,r-cran-marginaleffects,r-cran-tinyplot,r-cran-grf,r-cran-tmle,r-cran-superlearner"
+        "packages": "fonts-noto-cjk,r-cran-tidyverse,r-cran-tidymodels,r-cran-easystats,r-cran-exclusiontable,r-cran-here,r-cran-rms,r-cran-hmisc,r-cran-mice,r-cran-marginaleffects,r-cran-tinyplot,r-cran-tinytable,r-cran-grf,r-cran-tmle,r-cran-superlearner,r-cran-matchit,r-cran-weightit,r-cran-cbps,r-cran-clarify"
     }
         
 
