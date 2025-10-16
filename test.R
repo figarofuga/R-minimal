@@ -34,8 +34,11 @@ library(MatchIt)
 
 lalonde <- setDT(MatchIt::lalonde)
 ols_fit <- rms::ols(re78 ~ treat + age + educ + race + married + nodegree + re74 + re75, data = lalonde)
+ols_rcs_fit <- rms::ols(re78 ~ treat + rcs(age,4) + educ + race + married + nodegree + rcs(re74, 4) + rcs(re75, 4), data = lalonde)
+orm_fit <- rms::orm(re78 ~ treat + age + educ + race + married + nodegree + re74 + re75, data = lalonde)
+orm_rcs_fit <- rms::orm(re78 ~ treat + rcs(age,4) + educ + race + married + nodegree + rcs(re74, 4) + rcs(re75, 4), data = lalonde)
 
-
+#' ## 主要結果
 
 #' ## 主要結果
 #' 散布図と回帰直線。
