@@ -1,8 +1,20 @@
+#' ---
+#' title: "AF 速報解析"
+#' format:
+#'   revealjs:
+#'     slide-number: true
+#'     incremental: true
+#'     code-overflow: wrap
+#'     theme: default
+#' ---
+
+#| include: false
+#| message: false
+#| warning: false
 library(here)
 library(data.table)
 library(tinyplot)
 library(parameters)
-
 library(rms)
 library(grf)
 library(tmle)
@@ -11,11 +23,33 @@ library(WeightIt)
 library(marginaleffects)
 library(MatchIt)
 
+#' ## データ
+#' - データソース: 〇〇
+#' - 期間: 20XX-01-01〜20XX-12-31
+#' - 主要変数: 〜〜
+
+#| include: false
+#| message: false
+#| warning: false
 
 lalonde <- setDT(MatchIt::lalonde)
-
 ols_fit <- rms::ols(re78 ~ treat + age + educ + race + married + nodegree + re74 + re75, data = lalonde)
 
+
+
+#' ## 主要結果
+#' 散布図と回帰直線。
+tinyplot::plt(re78 ~ age, data = lalonde)
+
+#' ---
+#' ## 回帰モデル
+
+
+#' ### 話すメモ
+#' ::: notes
+#' - 交互作用の符号と解釈
+#' - 次スライドで感度分析
+#' :::
 
 # rhc <- data.table::fread(here::here("rhc.csv")) |> 
 #     dplyr::mutate(
