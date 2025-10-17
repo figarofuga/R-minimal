@@ -1,11 +1,7 @@
 #' ---
 #' title: "AF 速報解析"
 #' format:
-#'   revealjs:
-#'     slide-number: true
-#'     incremental: true
-#'     code-overflow: wrap
-#'     theme: default
+#'   html
 #' ---
 
 #| include: false
@@ -24,28 +20,57 @@ library(marginaleffects)
 library(MatchIt)
 
 #' ## データ
-#' - データソース: 〇〇
-#' - 期間: 20XX-01-01〜20XX-12-31
-#' - 主要変数: 〜〜
+#' - データソース: lalonde
+#' - results of RCT is 1794.3433.
+#' - 主要変数: treat, age, educ, race, married, nodegree, re74, re75
+#' ## 通常の回帰モデル
+
 
 #| include: false
 #| message: false
 #| warning: false
 
 lalonde <- setDT(MatchIt::lalonde)
+
+univariate_fit <- rms::ols(re78 ~ treat, data = lalonde)
 ols_fit <- rms::ols(re78 ~ treat + age + educ + race + married + nodegree + re74 + re75, data = lalonde)
 ols_rcs_fit <- rms::ols(re78 ~ treat + rcs(age,4) + educ + race + married + nodegree + rcs(re74, 4) + rcs(re75, 4), data = lalonde)
-orm_fit <- rms::orm(re78 ~ treat + age + educ + race + married + nodegree + re74 + re75, data = lalonde)
-orm_rcs_fit <- rms::orm(re78 ~ treat + rcs(age,4) + educ + race + married + nodegree + rcs(re74, 4) + rcs(re75, 4), data = lalonde)
 
-#' ## 主要結果
+
+regression_res <- parameters::compare_models(
+  univariate_fit,
+  ols_fit,
+  ols_rcs_fit, 
+  keep = c("treat"))
+
+display(regression_res, format = "tt")
+
+#' ## Propensity score matching
+
+m_out <- MatchIt::matchit(
+    treat ~ age + educ + race + married + nodegree + re74 + re75, 
+    data = lalonde, 
+    estimand = "ATT",
+    method = "nearest", 
+    distance = "glm")
+
+matched_data <- MatchIt::match.data(m_out)
+
+ps_fit <- lm(re78 ~ treat * (age + educ + race + married +
+                            nodegree + re74 + re75),
+          data = matched_data,
+          weights = weights)
+
+matched_res <- avg_comparisons(ps_fit,
+                variables = "treat",
+                vcov = ~subclass)
 
 #' ## 主要結果
 #' 散布図と回帰直線。
 tinyplot::plt(re78 ~ age, data = lalonde)
 
 #' ---
-#' ## 回帰モデル
+
 
 
 #' ### 話すメモ
