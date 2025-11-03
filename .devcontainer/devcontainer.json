@@ -23,11 +23,9 @@
             "useTesting": false
         }, 
         "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-        "packages": "fonts-noto-cjk,r-cran-reticulate,r-cran-tidyverse,r-cran-easystats,r-cran-here,r-cran-rms,r-cran-hmisc,r-cran-rmsb,r-cran-rstan,r-cran-rstanarm,r-cran-brms"
+        "packages": "fonts-noto-cjk,r-cran-tidyverse,r-cran-easystats,r-cran-here"
     },
 
-		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
-		"ghcr.io/devcontainers-extra/features/uv:1": {}, 
 		"ghcr.io/devcontainers-extra/features/git-lfs:1": {}
 	}, 
     "overrideFeatureInstallOrder": [
@@ -36,12 +34,6 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-python.vscode-python-envs",
-				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"ms-python.debugpy",
-				"ms-toolsai.jupyter",
-				"quarto.quarto",
 				"REditorSupport.r"
 			], 
 		"settings": {
