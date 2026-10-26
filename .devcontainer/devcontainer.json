@@ -5,7 +5,7 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:noble",
 	"features": {
-		"ghcr.io/rocker-org/devcontainer-features/r-apt:0": {
+		"ghcr.io/rocker-org/devcontainer-features/r-apt:1": {
             // See: https://github.com/rocker-org/devcontainer-features/blob/main/src/r-apt/README.md#options
             //
             // Use RSupport (incl languageserver and httpgd) spand bspm
